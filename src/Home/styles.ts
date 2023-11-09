@@ -7,14 +7,13 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #000000;
-  color: #d3d3d3;
+  color: #00ced1;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  background: #666666;
-  border: 2px solid #a7a7a7;
+  background: #f5f5f5;
   border-radius: 10px;
   width: 60%;
   height: 80%;
@@ -24,24 +23,7 @@ export const Content = styled.div`
   .content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-  }
-
-  .subtitle {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    font-size: 30px;
-    gap: 15px;
-  }
-
-  .help {
-    font-size: 20px;
-    padding: 2px 5px;
-    border-radius: 10px;
-    background-color: #d3d3d3;
-    color: #000000;
-    cursor: pointer;
+    gap: 35px;
   }
 
   h1 {
@@ -51,51 +33,26 @@ export const Content = styled.div`
   hr {
     width: 100%;
   }
-
-  .footer {
-    display: flex;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-  }
 `;
 
 export const Options = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+  color: #ffffff;
 
   .option {
-    width: 100%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
-    border: 3px solid #a7a7a7;
-    border-radius: 10px;
-    gap: 10px;
-  }
-
-  .divider {
-    display: flex;
-    gap: 10px;
-  }
-
-  .country {
-    background-color: #231c8d;
-  }
-
-  .football {
-    background-color: #94ad0d;
-  }
-
-  .film {
-    background-color: #ff7f50;
-  }
-
-  .actor {
-    background-color: #6959cd;
+    font-size: 30px;
+    border: 2px solid #000000;
+    background-color: #00ced1;
+    border-radius: 50px;
+    cursor: pointer;
   }
 `;
 
@@ -103,12 +60,12 @@ export const Modal = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px 10px;
-  font-family: "Roboto", sans-serif;
 
   .title {
     font-weight: bold;
     text-align: center;
     font-size: 32px;
+    color: #00ced1;
   }
 
   .explanation {
