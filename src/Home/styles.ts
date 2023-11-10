@@ -16,14 +16,15 @@ export const Content = styled.div`
   background: #f5f5f5;
   border-radius: 10px;
   width: 60%;
-  height: 80%;
+  height: 85%;
   padding: 10px;
   gap: 5px;
 
   .content {
     display: flex;
+    height: 100%;
     flex-direction: column;
-    gap: 35px;
+    justify-content: space-around;
   }
 
   h1 {

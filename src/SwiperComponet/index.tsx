@@ -33,7 +33,7 @@ const SwiperComponent = () => {
         spaceBetween={0}
         navigation
         pagination
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 1500 }}
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>
