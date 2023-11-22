@@ -32,11 +32,14 @@ const Game: React.FC = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/getOptions").then((response) => {
-      console.log(response);
-      console.log("estou aqui");
-      console.log(response.data);
-    });
+    axios
+      .get("http://localhost:8080/getOptions")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter opções:", error);
+      });
   }, [flags]);
 
   // const flagsData = [
