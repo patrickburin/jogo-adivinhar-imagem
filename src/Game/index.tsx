@@ -53,25 +53,25 @@ const Game: React.FC = () => {
     }
   }, [valueFlag]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("/startServer")
-  //     .then((response) => {
-  //       console.log("Server iniciado com sucesso");
-  //     })
-  //     .catch((error) => {
-  //       console.error("Erro ao iniciar o server:", error);
-  //     });
+  useEffect(() => {
+    axios
+      .get("/startServer")
+      .then((response) => {
+        console.log("Server iniciado com sucesso");
+      })
+      .catch((error) => {
+        console.error("Erro ao iniciar o server:", error);
+      });
 
-  //   axios
-  //     .get("/startClient")
-  //     .then((response) => {
-  //       console.log("Cliente iniciado com sucesso");
-  //     })
-  //     .catch((error) => {
-  //       console.error("Erro ao iniciar o cliente:", error);
-  //     });
-  // }, []);
+    axios
+      .get("/startClient")
+      .then((response) => {
+        console.log("Cliente iniciado com sucesso");
+      })
+      .catch((error) => {
+        console.error("Erro ao iniciar o cliente:", error);
+      });
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
