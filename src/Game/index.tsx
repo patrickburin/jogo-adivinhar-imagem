@@ -55,7 +55,7 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("/startServer")
+      .get("http://localhost:8080/startServer")
       .then((response) => {
         console.log("Server iniciado com sucesso");
       })
@@ -64,7 +64,7 @@ const Game: React.FC = () => {
       });
 
     axios
-      .get("/startClient")
+      .get("http://localhost:8080/startClient")
       .then((response) => {
         console.log("Cliente iniciado com sucesso");
       })
