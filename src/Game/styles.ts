@@ -50,11 +50,11 @@ export const Options = styled.div`
 
   .option {
     display: flex;
-    width: 50%;
     align-items: center;
+    width: 70%;
     justify-content: center;
     padding: 2px;
-    font-size: 34px;
+    font-size: 28px;
     border: 2px solid #000000;
     background-color: #00ced1;
     color: #ffffff;

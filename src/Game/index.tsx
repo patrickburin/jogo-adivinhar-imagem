@@ -22,9 +22,22 @@ import axios from "axios";
 //react icons
 import { FaQuestion } from "react-icons/fa6";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { CiTrophy } from "react-icons/ci";
+
+//material ui
+import { Box, Modal } from "@mui/material";
 
 const Game: React.FC = () => {
   const [flags, setFlags] = useState<Flag[]>([]);
+  const [valueFlag, setValueFlag] = useState(0);
+  const [flag, setFlag] = useState("src/images/brasil.png");
+
+  //modal
+  const [openFinish, setOpenFinish] = useState(false);
+  const handleCloseFinish = () => {
+    setOpenFinish(false);
+    navigate("/");
+  };
 
   const navigate = useNavigate();
   const handleClick = () => {
@@ -32,35 +45,85 @@ const Game: React.FC = () => {
   };
 
   useEffect(() => {
+    if (valueFlag === 1) {
+      setFlag("src/images/alemanha.svg");
+    }
+    if (valueFlag === 2) {
+      setFlag("src/images/unitedStates.png");
+    }
+  }, [valueFlag]);
+
+  useEffect(() => {
     axios
-      .get("http://localhost:8080/getOptions")
+      .get("http://localhost:8080/startServer")
       .then((response) => {
-        console.log(response.data);
+        console.log("Server iniciado com sucesso");
       })
       .catch((error) => {
-        console.error("Erro ao obter opções:", error);
+        console.error("Erro ao iniciar o server:", error);
       });
-  }, [flags]);
 
-  // const flagsData = [
-  //   { name: "Bandeira 1", isCorrect: true },
-  //   { name: "Bandeira 2", isCorrect: false },
-  //   { name: "Bandeira 3", isCorrect: false },
-  //   { name: "Bandeira 4", isCorrect: false },
-  // ];
+    axios
+      .get("http://localhost:8080/startClient")
+      .then((response) => {
+        console.log("Cliente iniciado com sucesso");
+      })
+      .catch((error) => {
+        console.error("Erro ao iniciar o cliente:", error);
+      });
+  }, []);
 
-  // const sendAnswerToBackend = async (isCorrect: boolean) => {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       const backendResponse = { success: true }; // Simulação de uma resposta de sucesso
-  //       resolve(backendResponse);
-  //     }, 1000);
-  //   });
-  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/getOptions");
+        if (Array.isArray(response.data) && response.data.length === 5) {
+          const flagsWithNames: Flag[] = response.data.map((name) => ({
+            name,
+            isCorrect: false,
+          }));
+          setFlags(flagsWithNames);
+          console.log("passei por aqui");
+        } else {
+          console.error("Resposta inesperada: não foram recebidos 5 strings.");
+        }
+      } catch (error) {
+        console.error("Erro ao obter opções:", error);
+      }
+    };
 
-  const handleOptionClick = async (isCorrect: boolean) => {
-    if (isCorrect) {
+    fetchData();
+  }, [valueFlag, []]);
+
+  const handleOptionClick = async (nameFlag: string) => {
+    const sendData = async (data: { name: string }) => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8080/postOption",
+          data
+        );
+        console.log("Dados enviados com sucesso!", response);
+
+        if (nameFlag === "Estados Unidos" && valueFlag === 2) {
+          setOpenFinish(true);
+          await axios.get("http://localhost:8080/fecharConexaoClient");
+          await axios.get("http://localhost:8080/fecharConexaoServer");
+        } else {
+          setValueFlag((prev) => prev + 1);
+        }
+      } catch (error) {
+        console.error("Erro ao enviar os dados:", error);
+      }
+    };
+
+    if (
+      (nameFlag === "Brasil" && valueFlag === 0) ||
+      (nameFlag === "Alemanha" && valueFlag === 1) ||
+      (nameFlag === "Estados Unidos" && valueFlag === 2)
+    ) {
       toast.success("Acertou!");
+      const data = { name: nameFlag };
+      sendData(data);
     } else {
       toast.error("Errou! Tente novamente.");
     }
@@ -81,35 +144,49 @@ const Game: React.FC = () => {
         </div>
         <S.Flag>
           <div className="flag">
-            <img src="src/images/australia.png" alt="bandeira" />
+            <img src={flag} alt="bandeira" />
           </div>
         </S.Flag>
         <S.Options>
-          <button
-            onClick={() => {
-              setFlags([
-                { name: "Bandeira 1", isCorrect: true },
-                { name: "Bandeira 2", isCorrect: false },
-                { name: "Bandeira 3", isCorrect: false },
-                { name: "Bandeira 4", isCorrect: false },
-              ]);
-            }}
-          >
-            aaaaaaaaaa
-          </button>
-          {/* {flags.map((flag, index) => (
+          {flags.map((flag, index) => (
             <div className="divider" key={index}>
               <div
                 className="option"
-                onClick={() => handleOptionClick(flag.isCorrect)}
+                onClick={() => handleOptionClick(flag.name)}
               >
                 {flag.name}
               </div>
             </div>
-          ))} */}
+          ))}
         </S.Options>
       </S.Content>
       <Toastify />
+      <Modal
+        open={openFinish}
+        onClose={handleCloseFinish}
+        style={{ zIndex: 9999 }}
+      >
+        <Box
+          sx={{
+            position: "absolute" as "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            border: "none",
+            borderRadius: "10px",
+            boxShadow: 24,
+            p: 1,
+            outline: "none",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          FIM DE JOGO, VOCÊ VENCEU! YOU ARE THE BEST, BRO
+          <CiTrophy size={300} />
+        </Box>
+      </Modal>
     </C.Container>
   );
 };

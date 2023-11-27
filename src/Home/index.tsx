@@ -74,14 +74,10 @@ const Home = () => {
             <hr />
             <div className="explanation">
               <div>
-                Ao iniciar a partida, uma bandeira será exibida e você deverá
-                escolher a opção correta. As bandeiras são de países e de times
-                de futebol
-              </div>
-              <div>
-                Após selecionar a opção desejada, um aviso mostrando se acertou
-                ou não irá aparecer na tela. Caso tenha errado, você tentará de
-                novo. Caso acerte, uma nova etapa será exibida
+                Ao iniciar a partida, você deverá selecionar a bandeira que
+                correspondente ao país que está sendo mostrado na tela. Caso
+                acerte, a próxima bandeira será mostrada. Caso erre, terá que
+                tentar de novo.
               </div>
             </div>
           </C.Modal>
@@ -112,13 +108,22 @@ const Home = () => {
                 estilização da página e React Icons para os ícones.
               </div>
               <div>
-                O BACK ED FOI FEITO EM JAVA COM SOCKETS TERMINAR ISSO AQUI COM O
-                LEONARDINNNN
+                O back end foi feito em Java, utilizando o framework Spring Boot
+                e Sockets para a comunicação entre o front e o back.
               </div>
-              <div>
-                COLOCAR AQUII INFOR DE ONDE FORAM ARMAZENADOS E OUTRRAS COISAS,
-                POR EXEMPLO O REPOSITORIO ESTA NO GITHUB E TAMBEM NA VERCEL E
-                BABABABABABA
+              <div className="links">
+                <a
+                  href="https://github.com/patrickburin/jogo-adivinhar-imagem"
+                  target="_blank"
+                >
+                  Link do repositório no GitHub
+                </a>
+                <a
+                  href="https://github.com/patrickburin/jogo-adivinhar-imagem"
+                  target="_blank"
+                >
+                  Link do projeto no Vercel
+                </a>
               </div>
             </div>
           </C.Modal>

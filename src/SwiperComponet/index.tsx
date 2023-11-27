@@ -12,18 +12,14 @@ import "swiper/css/scrollbar";
 const SwiperComponent = () => {
   const images = [
     { id: 1, image: "src/images/australia.png" },
-    { id: 2, image: "src/images/barcelona.png" },
-    { id: 3, image: "src/images/canada.png" },
-    { id: 4, image: "src/images/brasil.png" },
-    { id: 5, image: "src/images/flamengo.png" },
-    { id: 6, image: "src/images/gremio.png" },
-    { id: 7, image: "src/images/unitedStates.png" },
-    { id: 8, image: "src/images/realMadrid.png" },
-    { id: 9, image: "src/images/japan.png" },
-    { id: 10, image: "src/images/holanda.png" },
-    { id: 11, image: "src/images/milan.png" },
-    { id: 12, image: "src/images/italia.png" },
-    { id: 13, image: "src/images/fluminense.png" },
+    { id: 2, image: "src/images/canada.png" },
+    { id: 3, image: "src/images/brasil.png" },
+    { id: 4, image: "src/images/unitedStates.png" },
+    { id: 5, image: "src/images/japan.png" },
+    { id: 6, image: "src/images/holanda.png" },
+    { id: 7, image: "src/images/italia.png" },
+    { id: 8, image: "src/images/alemanha.svg" },
+    { id: 9, image: "src/images/gremio.png" },
   ];
   return (
     <C.Swiper>
