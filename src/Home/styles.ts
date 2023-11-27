@@ -79,4 +79,21 @@ export const Modal = styled.div`
   hr {
     width: 100%;
   }
+
+  .links {
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    gap: 5px;
+  }
+  a {
+    text-decoration: none;
+    color: #00ced1;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #000;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+  }
 `;
