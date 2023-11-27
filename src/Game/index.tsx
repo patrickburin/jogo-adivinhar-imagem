@@ -77,7 +77,7 @@ const Game: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:8080/getOptions");
-        if (Array.isArray(response.data) && response.data.length === 5) {
+        if (Array.isArray(response.data)) {
           const flagsWithNames: Flag[] = response.data.map((name) => ({
             name,
             isCorrect: false,
