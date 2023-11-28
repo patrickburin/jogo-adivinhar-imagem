@@ -14,7 +14,7 @@ O jogo foi feito com linguagens diferentes, TypeScript com React para o front en
 
 ## Não clique em jogar ainda, primeiro deve "rodar" o projeto no back end para as requisições funcionarem corretamente.
 
-4 - Baixar o arquivo RedesS, enviado em anexo. Acessar a IDE Eclipse e seguir o seguinte passo a passo.
+4 - Baixar o arquivo RedesS anexado (também está presente na pasta Java). Acessar a IDE Eclipse e seguir o seguinte passo a passo.
 File -> Import -> Maven -> Existing Maven Projects -> Selecionar a pasta redes -> Marcar a caixa do /pom.xml -> Finish, após isso esperar de terminar de importar a pasta.
 
 5 - Após terminar de importar iniciar o aplicativo RedesSApplication e aguardar 10 segundos.
@@ -25,6 +25,6 @@ File -> Import -> Maven -> Existing Maven Projects -> Selecionar a pasta redes -
 
 # Observações
 
-## - Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
+- Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
 
-## - Foi Java para fazer o back end e Spring Boot para a integração com o front, que por sua vez foi feito com TypeScript e React. A comunicação foi feita através de Sockets, como era o objetivo do trabalho.
+- Foi utilizado Java para fazer o back end e Spring Boot para a integração com o front, que por sua vez foi feito com TypeScript e React. A comunicação foi feita através de Sockets, como era o objetivo do trabalho.
