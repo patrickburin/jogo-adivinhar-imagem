@@ -26,6 +26,8 @@ File -> Import -> Maven -> Existing Maven Projects -> Selecionar a pasta redes -
 # Observações
 
 - É necessário ter o Node e Yarn instalados para rodar o front end
+  Link download Node: https://nodejs.org/en
+  Comando para instalar o yarn: npm install --global yarn
 
 - Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
 
