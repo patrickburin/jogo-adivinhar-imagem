@@ -1,27 +1,30 @@
-# React + TypeScript + Vite
+# Java + Spring Boot e TypeScript + React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O jogo foi feito com linguagens diferentes, TypeScript com React para o front end e Java com Spring Boot para o back end e as APIs
 
-Currently, two official plugins are available:
+# Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## É de extrema importância que o passo a passo seja seguido fielmente para que o jogo possa ser executado corretamente.
 
-## Expanding the ESLint configuration
+1 - Clonar o repositório do front end (de preferência no vscode), utilizando o seguinte comando no terminal: git clone https://github.com/patrickburin/jogo-adivinhar-imagem.git
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2 - Baixar todas as dependências do projeto utilizando o comando "yarn" no terminal
 
-- Configure the top-level `parserOptions` property like this:
+3 - Iniciar o server com o comando "yarn dev". Automaticamente abrirá uma nova guia com o endereço: http://localhost:5173/. Caso não abra, basta digitar no campo da url e abrir a página, o projeto já estará na tela inicial
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Não clique em jogar ainda, primeiro deve "rodar" o projeto no back end para as requisições funcionarem corretamente.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+4 - Baixar o arquivo RedesS, enviado em anexo. Acessar a IDE Eclipse e seguir o seguinte passo a passo.
+File -> Import -> Maven -> Existing Maven Projects -> Selecionar a pasta redes -> Marcar a caixa do /pom.xml -> Finish, após isso esperar de terminar de importar a pasta.
+
+5 - Após terminar de importar iniciar o aplicativo RedesSApplication e aguardar 10 segundos.
+
+6 - Ir até a aba aberta no navegador onde o jogo está, e clicar em "Jogar".
+
+7 - Divirta-se!
+
+# Observações
+
+## - Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
+
+## - Foi Java para fazer o back end e Spring Boot para a integração com o front, que por sua vez foi feito com TypeScript e React. A comunicação foi feita através de Sockets, como era o objetivo do trabalho.
