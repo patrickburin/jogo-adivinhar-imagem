@@ -25,6 +25,6 @@ File -> Import -> Maven -> Existing Maven Projects -> Selecionar a pasta redes -
 
 # Observações
 
-## - Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
+- Caso o jogo trave ou apresente algum problema, basta reiniciar o Java, sem necessidades de reinicar a parte do front end
 
-## - Foi Java para fazer o back end e Spring Boot para a integração com o front, que por sua vez foi feito com TypeScript e React. A comunicação foi feita através de Sockets, como era o objetivo do trabalho.
+- Foi utilizado Java para fazer o back end e Spring Boot para a integração com o front, que por sua vez foi feito com TypeScript e React. A comunicação foi feita através de Sockets, como era o objetivo do trabalho.
