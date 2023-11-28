@@ -71,6 +71,15 @@ const Game: React.FC = () => {
       .catch((error) => {
         console.error("Erro ao iniciar o cliente:", error);
       });
+
+    axios
+      .post("http://localhost:8080/postEntrarJogo")
+      .then((response) => {
+        console.log("Server iniciado com sucesso!");
+      })
+      .catch((error) => {
+        console.error("Erro ao iniciar o serverrrr:", error);
+      });
   }, []);
 
   useEffect(() => {
