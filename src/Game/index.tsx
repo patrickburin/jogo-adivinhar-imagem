@@ -55,7 +55,7 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/startServer")
+      .get("http://172.23.8.118:8080/startServer")
       .then(() => {
         console.log("Server iniciado com sucesso");
       })
@@ -73,7 +73,7 @@ const Game: React.FC = () => {
       });
 
     axios
-      .post("http://localhost:8080/postEntrarJogo")
+      .post("http://172.23.8.118:8080/postEntrarJogo")
       .then(() => {
         console.log("Server iniciado com sucesso!");
       })
@@ -92,7 +92,6 @@ const Game: React.FC = () => {
             isCorrect: false,
           }));
           setFlags(flagsWithNames);
-          console.log("passei por aqui");
         } else {
           console.error("Resposta inesperada: não foram recebidos 5 strings.");
         }
@@ -102,7 +101,7 @@ const Game: React.FC = () => {
     };
 
     fetchData();
-  }, [valueFlag, []]);
+  }, [valueFlag, flags]);
 
   const handleOptionClick = async (nameFlag: string) => {
     const sendData = async (data: { name: string }) => {
@@ -116,7 +115,7 @@ const Game: React.FC = () => {
         if (nameFlag === "Estados Unidos" && valueFlag === 2) {
           setOpenFinish(true);
           await axios.get("http://localhost:8080/fecharConexaoClient");
-          await axios.get("http://localhost:8080/fecharConexaoServer");
+          await axios.get("http://172.23.8.118:8080/fecharConexaoServer");
         } else {
           setValueFlag((prev) => prev + 1);
         }
